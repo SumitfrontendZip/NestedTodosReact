@@ -1,22 +1,39 @@
-#listContainer > img {
+#listContainer #icons>img {
     cursor: pointer;
     width: 30px;
 }
-#listContainer > img:last-child {
+
+#listContainer>#icons>img:last-child {
     cursor: pointer;
     width: 50px;
 }
 
 #listContainer {
+    margin: 5px 0px;
+    background: #dedede;
     width: 400px;
+    padding: 10px;
+    border-radius: 10px;
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: center;
     font-size: 1.8rem;
     text-transform: capitalize;
 }
-input[type='checkbox']{
+
+input[type='checkbox'] {
     height: 20px;
     width: 20px;
     cursor: pointer;
-  }
+}
+
+#icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#content{
+    width: 200px;
+    word-wrap: break-word;
+    text-wrap: wrap;
+}

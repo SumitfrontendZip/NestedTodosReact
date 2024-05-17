@@ -1,11 +1,13 @@
 import TodoList from '../Showtodos/TodoList'
 import './ContainerTodo.css'
-function ContainerTodo() {
+function ContainerTodo({items}) {
     return (
         <div id="ContainerTodos">
-            <TodoList />
+           {
+             items.map((e)=><TodoList key={e.id} value={e.title}/> )
+           }
         </div>
     )
 }
 
-export default ContainerTodo
+export default ContainerTodo;
