@@ -1,0 +1,10 @@
+#content-container{
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#content-container > img{
+    width: 50px;
+}
