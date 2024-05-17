@@ -1,0 +1,12 @@
+nav {
+    display: flex;
+    width: 100vw;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px 0px;
+    border-bottom: 1px solid rgb(212, 212, 212);
+}
+nav > img {
+    width: 50px;
+    cursor: pointer;
+}
