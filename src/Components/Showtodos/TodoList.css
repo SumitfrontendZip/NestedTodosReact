@@ -1,0 +1,22 @@
+#listContainer > img {
+    cursor: pointer;
+    width: 30px;
+}
+#listContainer > img:last-child {
+    cursor: pointer;
+    width: 50px;
+}
+
+#listContainer {
+    width: 400px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    font-size: 1.8rem;
+    text-transform: capitalize;
+}
+input[type='checkbox']{
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+  }
