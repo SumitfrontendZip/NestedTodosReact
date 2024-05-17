@@ -4,8 +4,10 @@ function ContainerTodo({items}) {
     return (
         <div id="ContainerTodos">
            {
-             items.map((e)=><TodoList key={e.id} value={e.title}/> )
-           }
+                items.map((item) => (
+                    <TodoList itemData={item} key={item.id} />
+                ))
+            }
         </div>
     )
 }

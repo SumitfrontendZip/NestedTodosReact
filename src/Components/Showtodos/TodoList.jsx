@@ -1,11 +1,11 @@
 import cross from "./cross.png"
 import plus from './plus.png'
 import './TodoList.css'
-function TodoList({value}) {
+function TodoList({itemData}) {
   return (
     <div id="listContainer">
       <input type="checkbox" />
-      <div id="content">{value}</div>
+      <div id="content">{itemData.value}</div>
       <div id="icons">
         <img src={plus} alt="" />
         <img src={cross} alt="" />
