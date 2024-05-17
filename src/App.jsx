@@ -1,12 +1,13 @@
+import InputBox from "./Components/InputData/InputBox"
 import Navbar from "./Components/Navbar"
-import Section from "./Components/Section"
+
 
 function App() {
 
   return (
     <>
       <Navbar/>
-      <Section/>
+      <InputBox/>
     </>
   )
 }
