@@ -4,11 +4,8 @@ import cross from "./cross.png"
 import plus from './plus.png'
 import './TodoList.css'
 
-function removeComment(setItems){
-  return setItems([])
-}
 
-function TodoList({ itemData, id , setItems}) {
+function TodoList({ itemData, id }) {
 
   const [data, setData] = useState(false)
 
@@ -17,10 +14,10 @@ function TodoList({ itemData, id , setItems}) {
   }
 
   function removeComment(){
-    return setItems([])
+    return (
+      <InputBox classUpdate={false} id={id}/>
+    )
   }
-  
- 
   return (
     <>
       <div id="listContainer" >
@@ -32,6 +29,7 @@ function TodoList({ itemData, id , setItems}) {
         </div>
       </div>
       {data && <InputBox id={id} classUpdate={true}/>}
+      
     </>
   )
 }
