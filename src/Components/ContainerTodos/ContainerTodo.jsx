@@ -1,24 +1,33 @@
 import { useEffect, useState } from 'react';
 import TodoList from '../Showtodos/TodoList'
 import './ContainerTodo.css'
-function ContainerTodo({ items=[], classUpdate = false }) {
 
-    const [itemsUpdate, setItemsUpdate] = useState(items);
- 
-    useEffect(()=>{
-        setItemsUpdate(items)
-    },[items])
+function ContainerTodo({ items, classUpdate = false }) {
 
-
+    let itemUpdate = items;
     function removeItem(idToRemove) {
-        setItemsUpdate(prevItems => prevItems.filter(item => item.id !== idToRemove));
+        const indexToRemove = items.findIndex((e) => {
+            return e.id === idToRemove;
+        });
+
+        if (indexToRemove !== -1) {
+            // Remove the item from the items array
+            items.splice(indexToRemove, 1);
+            console.log("Item removed successfully");
+        } else {
+            console.log("Item not found");
+        }
     }
+
+    useEffect(()=>{
+
+    },[])
 
     function handlemargin(styleMargin) {
         return (
             <div id="ContainerTodos" style={styleMargin}>
                 {
-                    itemsUpdate.map((item) => (
+                    items.map((item) => (
                         <TodoList
                             itemData={item}
                             key={item.id}

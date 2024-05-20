@@ -4,6 +4,7 @@ import ContainerTodo from '../ContainerTodos/ContainerTodo';
 
 function InputBox({ classUpdate = false, id, parentId = null }) {
 
+ 
     const [data, setData] = useState("");
     const [items, setItems] = useState([])
 
@@ -13,7 +14,6 @@ function InputBox({ classUpdate = false, id, parentId = null }) {
             [...prevItems, {
                 id: Math.floor(Math.random() * 10000000),
                 value: data,
-                backComment: [],
                 parentId: parentId
             }]
         )
@@ -49,6 +49,3 @@ function InputBox({ classUpdate = false, id, parentId = null }) {
     )
 }
 export default InputBox;
-
-
-// UP@123
