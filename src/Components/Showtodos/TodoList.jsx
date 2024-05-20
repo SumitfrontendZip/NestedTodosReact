@@ -4,23 +4,18 @@ import cross from "./cross.png"
 import plus from './plus.png'
 import './TodoList.css'
 
-function removeComment(setItems){
-  return setItems([])
-}
 
-function TodoList({ itemData, id , setItems}) {
-
+function TodoList({ itemData, id }) {
   const [data, setData] = useState(false)
 
   function addComments() {
+    console.log(id);
     setData(true)
   }
 
-  function removeComment(){
-    return setItems([])
+  function removeComment() {
+   
   }
-  
- 
   return (
     <>
       <div id="listContainer" >
@@ -28,10 +23,10 @@ function TodoList({ itemData, id , setItems}) {
         <div id="content">{itemData.value}</div>
         <div id="icons">
           <img src={plus} onClick={addComments} alt="" />
-          <img src={cross} onClick={removeComment}  alt="" />
+          <img src={cross} onClick={removeComment} alt="" />
         </div>
       </div>
-      {data && <InputBox id={id} classUpdate={true}/>}
+      {data && <InputBox id={id} classUpdate={true} />}
     </>
   )
 }
