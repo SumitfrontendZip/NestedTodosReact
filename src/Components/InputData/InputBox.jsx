@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import './InputBox.css'
-import ContainerTodo from '../ContainerTodos/ContainerTodo';
+import RemoveTodo from '../Remove/RemoveTodo'
 
-function InputBox({ classUpdate = false, id }) {
+function InputBox({ classUpdate = false, id , parentId=null  }) {
+
     const [data, setData] = useState("");
     const [items, setItems] = useState([])
 
@@ -11,10 +12,12 @@ function InputBox({ classUpdate = false, id }) {
             [...prevItems, {
                 id: Math.floor(Math.random() * 10000000),
                 value: data,
-                backComment:[]
+                backComment:[],
+                parentId:parentId
             }]
         )
         setData("");
+        
     }
 
 
@@ -25,11 +28,13 @@ function InputBox({ classUpdate = false, id }) {
     }
 
     function handleMargin(styleMargin) {
+     
         return (
             <div id="inputContainer" style={styleMargin}>
                 <input type="text" placeholder='Enter your comment' value={data} onChange={(e) => setData(e.target.value)} onKeyDown={handleKeyDown} />
                 <button onClick={() => getInputValue()}>Comment</button>
             </div>
+            
         )
     }
 
@@ -39,7 +44,8 @@ function InputBox({ classUpdate = false, id }) {
             {
                 classUpdate ? handleMargin({ margin: "0px 0px 0px 100px" }) : handleMargin()
             }
-            <ContainerTodo items={items} classUpdate={classUpdate} />
+            <RemoveTodo items={items} classUpdate={classUpdate}  />
+            
            
         </>
     )

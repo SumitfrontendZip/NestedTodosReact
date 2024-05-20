@@ -5,16 +5,15 @@ import plus from './plus.png'
 import './TodoList.css'
 
 
-function TodoList({ itemData, id }) {
+function TodoList({ itemData, id , updatesItems}) {
   const [data, setData] = useState(false)
 
   function addComments() {
-    console.log(id);
     setData(true)
   }
 
-  function removeComment() {
-   
+  function removeComment() { 
+    updatesItems(id)
   }
   return (
     <>
@@ -26,7 +25,7 @@ function TodoList({ itemData, id }) {
           <img src={cross} onClick={removeComment} alt="" />
         </div>
       </div>
-      {data && <InputBox id={id} classUpdate={true} />}
+      {data && <InputBox id={id} classUpdate={true} parentId={id}/>}
     </>
   )
 }
