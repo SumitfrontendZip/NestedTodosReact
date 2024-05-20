@@ -5,18 +5,21 @@ import plus from './plus.png'
 import './TodoList.css'
 
 
-function TodoList({ itemData, id }) {
+function TodoList({ itemData, setItems }) {
+  const [showInputBox, setShowInputBox] = useState(false);
 
-  const [data, setData] = useState(false)
+  const addComments = () => {
+    setShowInputBox(true);
+    setItems((prevItems) =>
+      prevItems.map(prevItem => ({
+        ...prevItem,
+        backComment: [...prevItem.backComment, itemData.value]
+      }))
+    );
+  };
 
-  function addComments() {
-    setData(true)
-  }
+  function removeComment() {
 
-  function removeComment(){
-    return (
-      <InputBox classUpdate={false} id={id}/>
-    )
   }
   return (
     <>
@@ -25,11 +28,10 @@ function TodoList({ itemData, id }) {
         <div id="content">{itemData.value}</div>
         <div id="icons">
           <img src={plus} onClick={addComments} alt="" />
-          <img src={cross} onClick={removeComment}  alt="" />
+          <img src={cross} onClick={removeComment} alt="" />
         </div>
       </div>
-      {data && <InputBox id={id} classUpdate={true}/>}
-      
+      {showInputBox && <InputBox setItems={setItems} classUpdate={true}  />}
     </>
   )
 }
