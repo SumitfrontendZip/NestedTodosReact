@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import TodoList from '../Showtodos/TodoList'
 import './ContainerTodo.css'
-function ContainerTodo({ items, classUpdate = false }) {
+function ContainerTodo({ items=[], classUpdate = false }) {
 
-    const [itemsUpdate, setItemsUpdate] = useState([]);4
+    const [itemsUpdate, setItemsUpdate] = useState(items);
+ 
+    useEffect(()=>{
+        setItemsUpdate(items)
+    },[items])
 
-    useEffect(() => {
-        setItemsUpdate(items);
-    }, [items]);
 
     function removeItem(idToRemove) {
         setItemsUpdate(prevItems => prevItems.filter(item => item.id !== idToRemove));

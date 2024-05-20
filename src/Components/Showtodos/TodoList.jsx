@@ -16,17 +16,19 @@ function TodoList({ itemData, id , updateItems}) {
   function removeItem() { 
     updateItems(id)
   }
+
   return (
     <>
       <div id="listContainer" >
         <input type="checkbox" />
         <div id="content">{itemData.value}</div>
         <div id="icons">
-          <img src={plus} onClick={addComments} alt="" />
-          <img src={cross} onClick={removeItem} alt="" />
+          <img src={plus} onClick={addComments} alt="add" />
+          <img src={cross} onClick={removeItem} alt="remove" />
         </div>
       </div>
       {data && <InputBox id={id} classUpdate={true} parentId={id}/>}
+      
     </>
   )
 }

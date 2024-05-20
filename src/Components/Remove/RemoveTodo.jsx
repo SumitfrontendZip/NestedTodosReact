@@ -1,24 +1,15 @@
 import { useState } from 'react';
-import TodoList from '../Showtodos/TodoList';
+import ContainerTodo from '../ContainerTodos/ContainerTodo';
 
-function ParentComponent() {
-  const [items, setItems] = useState([]);
+function ParentComponent({items ,classUpdate}) {
+  const[itemsUpdate, setItemsUpdate] = useState(items);
 
-  function removeItem(idToRemove) {
-    setItems(prevItems => prevItems.filter(item => item.id !== idToRemove));
+  function handleRemoveItem(idToRemove) {
+    setItemsUpdate(prevItems => prevItems.filter(item => item.id !== idToRemove));
   }
-
+  console.log(itemsUpdate);
   return (
-    <div>
-      {items.map(item => (
-        <TodoList 
-          key={item.id} 
-          itemData={item} 
-          id={item.id} 
-          updateItems={removeItem} 
-        />
-      ))}
-    </div>
+    <ContainerTodo items={itemsUpdate} onRemoveItem={handleRemoveItem} classUpdate={classUpdate} />
   );
 }
 
