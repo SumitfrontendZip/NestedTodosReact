@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import './InputBox.css'
+import uuid from "uuid";
 import ContainerTodo from '../ContainerTodos/ContainerTodo';
 
 function InputBox({ classUpdate = false, id, parentId = null }) {
 
- 
     const [data, setData] = useState("");
     const [items, setItems] = useState([])
 
@@ -12,7 +12,7 @@ function InputBox({ classUpdate = false, id, parentId = null }) {
         if (data.trim() === '')  return
         setItems((prevItems) =>
             [...prevItems, {
-                id: Math.floor(Math.random() * 10000000),
+                id: uuid(),
                 value: data,
                 parentId: parentId
             }]
@@ -27,23 +27,14 @@ function InputBox({ classUpdate = false, id, parentId = null }) {
         }
     }
 
-    function handleMargin(styleMargin) {
-
-        return (
-            <div id="inputContainer" style={styleMargin}>
-                <input type="text" placeholder='Enter your comment' value={data} onChange={(e) => setData(e.target.value)} onKeyDown={handleKeyDown} />
-                <button onClick={() => getInputValue()}>Comment</button>
-            </div>
-
-        )
-    }
-
+    const margin = classUpdate ? { margin: "0px 0px 0px 100px" } : {}
     
     return (
         <>
-            {
-                classUpdate ? handleMargin({ margin: "0px 0px 0px 100px" }) : handleMargin()
-            }
+            <div id="inputContainer" style={margin}>
+                <input type="text" placeholder='Enter your comment' value={data} onChange={(e) => setData(e.target.value)} onKeyDown={handleKeyDown} />
+                <button onClick={() => getInputValue()}>Comment</button>
+            </div>
             <ContainerTodo items={items} classUpdate={classUpdate} />
         </>
     )

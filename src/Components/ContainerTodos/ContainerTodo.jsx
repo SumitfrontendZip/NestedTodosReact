@@ -8,10 +8,7 @@ function ContainerTodo({ items, classUpdate = false }) {
 
     // Remove item by id
     const removeItem = (idToRemove) => {
-        if (idToRemove == -1) {
-            return items
-        }
-
+       
         const indexToRemove = items.findIndex((e) => {
             return e.id === idToRemove;
         });
@@ -30,9 +27,9 @@ function ContainerTodo({ items, classUpdate = false }) {
         setItemsUpdate(items)
     }, [items])
 
-
+    const margin = classUpdate ? { margin: "0px 0px 0px 100px" } : {}
     return (
-        <div id="ContainerTodos" style={classUpdate ? { margin: "0px 0px 0px 100px" } : {}}>
+        <div id="ContainerTodos" style={margin}>
             {itemUpdate.map((item) => (
                 <TodoList
                     itemData={item}
