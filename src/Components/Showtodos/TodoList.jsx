@@ -6,15 +6,15 @@ import plus from './plus.png'
 import './TodoList.css'
 
 
-function TodoList({ itemData, id , updatesItems}) {
+function TodoList({ itemData, id , updateItems}) {
   const [data, setData] = useState(false)
 
   function addComments() {
     setData(true)
   }
 
-  function removeComment() { 
-    updatesItems(id)
+  function removeItem() { 
+    updateItems(id)
   }
   return (
     <>
@@ -23,7 +23,7 @@ function TodoList({ itemData, id , updatesItems}) {
         <div id="content">{itemData.value}</div>
         <div id="icons">
           <img src={plus} onClick={addComments} alt="" />
-          <img src={cross} onClick={removeComment} alt="" />
+          <img src={cross} onClick={removeItem} alt="" />
         </div>
       </div>
       {data && <InputBox id={id} classUpdate={true} parentId={id}/>}
