@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './InputBox.css'
-import RemoveTodo from '../Remove/RemoveTodo'
+import ContainerTodo from '../ContainerTodos/ContainerTodo';
 
 function InputBox({ classUpdate = false, id , parentId=null  }) {
 
@@ -38,13 +38,14 @@ function InputBox({ classUpdate = false, id , parentId=null  }) {
         )
     }
 
+    console.log(parentId);
 
     return (
         <>
             {
                 classUpdate ? handleMargin({ margin: "0px 0px 0px 100px" }) : handleMargin()
             }
-            <RemoveTodo items={items} classUpdate={classUpdate}  />
+            <ContainerTodo items={items} classUpdate={classUpdate}  />
             
            
         </>

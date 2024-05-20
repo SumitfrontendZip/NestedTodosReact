@@ -1,3 +1,4 @@
+
 import { useState } from "react"
 import InputBox from "../InputData/InputBox"
 import cross from "./cross.png"
