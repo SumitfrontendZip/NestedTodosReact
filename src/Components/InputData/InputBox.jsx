@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import './InputBox.css'
-import uuid from "uuid";
+import { v4 as uuid } from 'uuid';
 import ContainerTodo from '../ContainerTodos/ContainerTodo';
 
 function InputBox({ classUpdate = false, id, parentId = null }) {
-
     const [data, setData] = useState("");
     const [items, setItems] = useState([])
 

@@ -6,20 +6,14 @@ function ContainerTodo({ items, classUpdate = false }) {
 
     const [itemUpdate, setItemsUpdate] = useState(items)
 
-    // Remove item by id
+   
     const removeItem = (idToRemove) => {
        
         const indexToRemove = items.findIndex((e) => {
             return e.id === idToRemove;
         });
-      
-       
-        if (indexToRemove !== -1) {
-            // Remove the item from the items array
-            items.splice(indexToRemove, 1);
-            console.log("Item removed successfully");
-        }
-        
+        if (indexToRemove !== -1) items.splice(indexToRemove, 1);
+  
         setItemsUpdate(itemUpdate.filter(item => item.id !== idToRemove))
     }
 
@@ -28,6 +22,7 @@ function ContainerTodo({ items, classUpdate = false }) {
     }, [items])
 
     const margin = classUpdate ? { margin: "0px 0px 0px 100px" } : {}
+    
     return (
         <div id="ContainerTodos" style={margin}>
             {itemUpdate.map((item) => (
