@@ -6,7 +6,6 @@ import ContainerTodo from '../ContainerTodos/ContainerTodo';
 function InputBox({ classUpdate = false, id, parentId = null }) {
     const [data, setData] = useState("");
     const [items, setItems] = useState([])
-
     function getInputValue() {
         if (data.trim() === '')  return
         setItems((prevItems) =>
