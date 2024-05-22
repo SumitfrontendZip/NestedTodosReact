@@ -9,7 +9,6 @@ import './TodoList.css'
 function TodoList({ itemData, id, updateItems }) {
   const [showInput, setShowInput] = useState(false)
 
-  console.log(id);
 
   const addComments = () => setShowInput(true)
   const removeComment = ()=> updateItems(id)

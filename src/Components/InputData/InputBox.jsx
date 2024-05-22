@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import './InputBox.css'
-import { v4 as uuid } from 'uuid';
 import ContainerTodo from '../ContainerTodos/ContainerTodo';
 
 function InputBox({ classUpdate = false, id, parentId = null }) {
@@ -10,7 +9,7 @@ function InputBox({ classUpdate = false, id, parentId = null }) {
         if (data.trim() === '')  return
         setItems((prevItems) =>
             [...prevItems, {
-                id: uuid(),
+                id: Math.random()*450,
                 value: data,
                 parentId: parentId
             }]
