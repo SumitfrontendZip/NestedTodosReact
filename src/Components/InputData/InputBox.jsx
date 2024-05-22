@@ -31,7 +31,7 @@ function InputBox({ classUpdate = false, id, parentId = null }) {
         <>
             <div id="inputContainer" style={margin}>
                 <input type="text" placeholder='Enter your comment' value={data} onChange={(e) => setData(e.target.value)} onKeyDown={handleKeyDown} />
-                <button onClick={() => getInputValue()}>Comment</button>
+                <button onClick={() => getInputValue()}>{!classUpdate ? "Add Task" : "Add Subtask"}</button>
             </div>
             <ContainerTodo items={items} classUpdate={classUpdate} />
         </>
